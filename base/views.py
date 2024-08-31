@@ -34,8 +34,8 @@ curve = registry.get_curve('brainpoolP256r1')
 
 # Create your views here.
 
-access_key = "AKIATCKAPQV65T4NQ64O"
-secret_access_key = "Qh+Xf+xsRmmnoT1ujIH/NMqfvzScC36U73hWa5TX"
+access_key = "EXAMPLEACCESSKEY"
+secret_access_key = "EXAMPLESECRETACCESSKEY"
 bucket_name = "crypto1"
 
 s3 = boto3.client('s3', aws_access_key_id=access_key, aws_secret_access_key=secret_access_key)
