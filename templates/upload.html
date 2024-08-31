@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+{% block title %}Upload File{% endblock title %}
+{% block content %}
+<div class="container" >
+    <h1>Upload File</h1>
+    <form action="{% url 'upload_file' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <label class="input-group-text" for='file'>Upload your file here: </label>
+            <input class="form-control" type='file' name='file' required/><br>
+        </div>
+        <button class="btn btn-primary form-control" type="submit">Upload and Encrypt</button>
+    </form>
+</div>
+{% if private_key_file %}
+    <h2>Encryption Successful</h2>
+    <p>Your private key file is ready. 
+        <a class="btn btn-secondary" href="{% url 'download_private_key' private_key_file %}" download>Download Private Key</a>
+    </p>
+{% endif %}
+{% endblock content %}

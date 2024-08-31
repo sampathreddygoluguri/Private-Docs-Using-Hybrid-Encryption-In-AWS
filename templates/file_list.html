@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+{% block title %}Stored File list{% endblock title %}
+{% block content %}
+    {% if all_files %}
+    <div class="container">
+    <u1>
+        {% for file in all_files %}
+            <a class="btn btn-primary form-control"href="{% url 'decrypt_files' file%}"> {{file}} </a><br>
+            <br/>
+        {% endfor %}
+    </u1>
+    </div>
+    {% endif %}
+{% endblock content %}

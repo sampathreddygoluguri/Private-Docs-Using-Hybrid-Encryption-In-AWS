@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+{% block title %}Decrypt your file{% endblock title %}
+{% block content %}
+    <div class="container">
+    <h1>Decrypt File</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="filename" value="{{ filename }}">
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="private_key_file">Private Key File:</label>
+            <input class="form-control" type="file" name="private_key_file" id="private_key_file" required><br><br>
+        </div>
+        <button class="btn btn-primary form-control" type="submit">Decrypt</button>
+    </form>
+    </div>
+    {% if decrypted_file_url %}
+    <h2>Decryption Successful</h2>
+    <p>Your file is ready. 
+    <a class="btn btn-secondary" href="{% url 'download_decrypted_file' filename=decrypted_file_filename %}" download>Download Decrypted File</a>
+    {% endif %}
+{% endblock content %}
