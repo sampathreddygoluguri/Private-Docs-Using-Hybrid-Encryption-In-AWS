@@ -36,7 +36,7 @@ curve = registry.get_curve('brainpoolP256r1')
 
 access_key = "EXAMPLEACCESSKEY"
 secret_access_key = "EXAMPLESECRETACCESSKEY"
-bucket_name = "crypto1"
+bucket_name = "examplebucketname"
 
 s3 = boto3.client('s3', aws_access_key_id=access_key, aws_secret_access_key=secret_access_key)
 def upload_to(filename):
